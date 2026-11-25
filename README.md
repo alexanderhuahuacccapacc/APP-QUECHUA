@@ -53,6 +53,33 @@ por `--audio "C:\ruta\frase.wav"`. Para traducir texto del español al Collao,
 usa `--reverse --text "Buenos días"`. La interfaz y CMD funcionan sin internet
 después de instalar los modelos.
 
+#### Revisar la instalación
+
+Ejecuta este comando en CMD desde la carpeta `APP-QUECHUA`.
+
+```cmd
+DIAGNOSTICO-ASUS2.cmd
+```
+
+Muestra la rama y el commit, los archivos del modelo, la versión de Python
+y los errores al importar bibliotecas. Una línea `FALTA` en `models/` indica
+que hay que ejecutar el instalador de modelos. Un peso con tamaño incorrecto
+requiere volver a descargarlo con el mismo instalador.
+
+Si abriste una etiqueta antigua y Git indica que estás fuera de una rama,
+actualiza el clon a `main` para obtener el diagnóstico y la interfaz.
+
+```cmd
+git fetch origin refs/heads/main:refs/remotes/origin/main
+git switch main
+git merge --ff-only origin/main
+```
+
+Si falta la rama local, usa `git switch -c main --track origin/main`.
+Si el entorno anterior usa Python 3.13, crea aquí un entorno con Python 3.12
+con `set "UV_PROJECT_ENVIRONMENT=.venv-asus2"` y luego ejecuta `uv sync --python 3.12 --locked --no-dev`.
+El diagnóstico usa el entorno indicado, `.venv-asus2` o `.venv`.
+
 ### Instalador de Windows
 
 El asistente para Windows 10 (versión 2004 o posterior) y Windows 11 de 64 bits está en preparación. Mostrará la licencia con la opción **Acepto el acuerdo** y permitirá seleccionar una copia local completa del modelo.
