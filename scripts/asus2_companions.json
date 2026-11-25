@@ -1,0 +1,93 @@
+{
+  "format": 1,
+  "sources": {
+    "whisper-es": {
+      "repo": "openai/whisper-tiny",
+      "revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+      "bytes": 155454211,
+      "seconds": 42.15,
+      "upstream_verified": true
+    },
+    "tts-quz": {
+      "repo": "facebook/mms-tts-quz",
+      "revision": "c24fad4c936c65434b53c54239effbd34e5891aa",
+      "bytes": 145233126,
+      "seconds": 44.95,
+      "upstream_verified": true
+    }
+  },
+  "files": {
+    "whisper-es/added_tokens.json": {
+      "sha256": "9715fd2243b6f06a5858b5e32950d2853f73dd5bc201aafcf76f5082a2d8acd1",
+      "bytes": 34604
+    },
+    "whisper-es/config.json": {
+      "sha256": "ffdccec4f3211f4c63310f2b7098f309fe70f3952cedc5e4d11e43f5b2379b98",
+      "bytes": 1983
+    },
+    "whisper-es/generation_config.json": {
+      "sha256": "a5d5325911f16e74001a72fa13d6e208eee51548f994646de1f4b4cc8b35b512",
+      "bytes": 3747
+    },
+    "whisper-es/merges.txt": {
+      "sha256": "2df2990a395e35e8dfbc7511e08c12d56018d8d04691e0133e5d63b21e154dc6",
+      "bytes": 493869
+    },
+    "whisper-es/model.safetensors": {
+      "sha256": "7ebd0e69e78190ffe1438491fa05cc1f5c1aa3a4c4db3bc1723adbb551ea2395",
+      "bytes": 151061672
+    },
+    "whisper-es/normalizer.json": {
+      "sha256": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd",
+      "bytes": 52666
+    },
+    "whisper-es/preprocessor_config.json": {
+      "sha256": "9b5cd03a36fbb8a627c64d98a5b5b126ead95a77720723944487311f0110b666",
+      "bytes": 184990
+    },
+    "whisper-es/README.md": {
+      "sha256": "57a3bbbbf1e79369e4d1ced790812a1723b43a256c1b43fc70cc2f3339ae9881",
+      "bytes": 19787
+    },
+    "whisper-es/special_tokens_map.json": {
+      "sha256": "e67ae3a0aaa99abcd9f187138e12db1f65c16a14761c50ef10eef2c174a7a691",
+      "bytes": 2194
+    },
+    "whisper-es/tokenizer.json": {
+      "sha256": "27fc476bfe7f17299480be2273fc0608e4d5a99aba2ab5dec5374b4482d1a566",
+      "bytes": 2480466
+    },
+    "whisper-es/tokenizer_config.json": {
+      "sha256": "2a4c4281cf9f51ac6ccc406fdc711a087afe6530f671fa7b80953edc498275ce",
+      "bytes": 282683
+    },
+    "whisper-es/vocab.json": {
+      "sha256": "8f680bba319e01a653d2e8a5dbc17a9157179e0576e6ce74ce0c06356c6e24f9",
+      "bytes": 835550
+    },
+    "tts-quz/config.json": {
+      "sha256": "a839ed88c844508ef86d4eb46265ee3bc446fbddae7a9db5371b77a56f67dea9",
+      "bytes": 1641
+    },
+    "tts-quz/model.safetensors": {
+      "sha256": "cae65477cfda32b518973bc32b866302d758179d7cf27b26f3786c1a016af8e5",
+      "bytes": 145226744
+    },
+    "tts-quz/README.md": {
+      "sha256": "a5afd3c1cfbb9ad8c4d5f447fd344da495179865ac440215fd38b71d89aa39ef",
+      "bytes": 3999
+    },
+    "tts-quz/special_tokens_map.json": {
+      "sha256": "26ff6550693eac9d05171f7e1c990702dc92de476904ec80b516e97001a8a25e",
+      "bytes": 47
+    },
+    "tts-quz/tokenizer_config.json": {
+      "sha256": "29b3cbbd5dcdc47b1ae4a4706df51f92321eb07f800604c6fdaba476021e9997",
+      "bytes": 287
+    },
+    "tts-quz/vocab.json": {
+      "sha256": "32c1346069506110d9009e0593f7be02a5ad5b588b807a02d1e0c37b06def222",
+      "bytes": 408
+    }
+  }
+}

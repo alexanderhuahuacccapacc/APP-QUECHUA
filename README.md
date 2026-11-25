@@ -6,6 +6,53 @@ ASUS2 es un prototipo de investigación para el quechua Cusco-Collao. Su flujo d
 
 ## Instalación y ejecución
 
+### Desarrollo desde un clon limpio en Windows
+
+Ejecuta los comandos en **CMD**. La instalación inicial usa internet para
+descargar las bibliotecas y las voces auxiliares. Los pesos ajustados de ASUS2
+suman 4,4 GB y se descargan con una cuenta SSH autorizada en la red del servidor.
+
+Si faltan Git o `uv`, instálalos y vuelve a abrir CMD.
+
+```cmd
+winget install --id Git.Git -e --source winget
+winget install --id astral-sh.uv -e --source winget
+```
+
+Clona el código y prepara el entorno Python 3.12. Sustituye `TU_USUARIO_SSH`
+por tu cuenta del servidor ASUS2. La contraseña se ingresa cuando el
+instalador la solicita. El comando verifica el servidor y los pesos y guarda
+los modelos en `models/`.
+
+```cmd
+git clone --branch main https://github.com/alexanderhuahuacccapacc/APP-QUECHUA.git
+cd APP-QUECHUA
+uv sync --python 3.12 --locked --no-dev
+.venv\Scripts\python.exe -m scripts.install_asus2 --user TU_USUARIO_SSH
+```
+
+#### Interfaz de escritorio
+
+```cmd
+.venv\Scripts\python.exe -B -m app
+```
+
+#### Traducción directa en CMD
+
+```cmd
+chcp 65001
+set "PYTHONUTF8=1"
+set "HF_HUB_OFFLINE=1"
+set "TRANSFORMERS_OFFLINE=1"
+set "HF_HUB_DISABLE_TELEMETRY=1"
+.venv\Scripts\python.exe -B asus.py --root models\ASUS2 --device cpu --text "Allin punchay"
+```
+
+Para transcribir y traducir voz Collao, sustituye `--text "Allin punchay"`
+por `--audio "C:\ruta\frase.wav"`. Para traducir texto del español al Collao,
+usa `--reverse --text "Buenos días"`. La interfaz y CMD funcionan sin internet
+después de instalar los modelos.
+
 ### Instalador de Windows
 
 El asistente para Windows 10 (versión 2004 o posterior) y Windows 11 de 64 bits está en preparación. Mostrará la licencia con la opción **Acepto el acuerdo** y permitirá seleccionar una copia local completa del modelo.
