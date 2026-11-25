@@ -5,9 +5,11 @@ import getpass
 import os
 from pathlib import Path, PurePosixPath
 from typing import TYPE_CHECKING
+from zipfile import BadZipFile
 
 from scripts.companion_models import install_companions
 from scripts.download_asus2 import download as download_asus2
+from scripts.release_models import install_release
 
 if TYPE_CHECKING:
     from paramiko import SSHClient
@@ -58,23 +60,27 @@ def install(host: str, user: str, password: str, root: Path) -> None:
     os.environ["HF_HUB_DISABLE_TELEMETRY"] = "1"
     os.environ["HF_HUB_DISABLE_IMPLICIT_TOKEN"] = "1"
     install_companions(root)
-    print("ASUS2 instalado y verificado. Los modelos ya se pueden usar sin conexión.", flush=True)
 
 
 def main() -> None:
     import paramiko
 
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--user", required=True, help="Cuenta autorizada del servidor ASUS2")
+    parser.add_argument("--user", help="Cuenta SSH para descargar desde el servidor universitario")
     parser.add_argument("--host", default=HOST, help="Dirección del servidor ASUS2")
     args = parser.parse_args()
-    password = getpass.getpass("Contraseña SSH del servidor ASUS2: ")
+    root = ROOT / "models"
     try:
-        install(args.host, args.user, password, ROOT / "models")
+        if args.user:
+            password = getpass.getpass("Contraseña SSH del servidor ASUS2: ")
+            install(args.host, args.user, password, root)
+        else:
+            install_release(root)
     except paramiko.AuthenticationException:
         parser.exit(1, "El servidor ASUS2 rechazó las credenciales de la cuenta.\n")
-    except (OSError, ValueError, paramiko.SSHException) as error:
+    except (OSError, ValueError, BadZipFile, paramiko.SSHException) as error:
         parser.exit(1, f"No se pudo completar la instalación de ASUS2: {error}\n")
+    print("ASUS2 instalado y verificado. Los modelos ya se pueden usar sin conexión.", flush=True)
 
 
 if __name__ == "__main__":

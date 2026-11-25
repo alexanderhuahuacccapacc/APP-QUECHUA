@@ -1,0 +1,188 @@
+{
+  "tag": "asus2-v1.0.0",
+  "assets": {
+    "asus2-speech.safetensors": {
+      "bytes": 1933940224,
+      "sha256": "3c9fc5832b0a7971eb2502cc6ae9ac4a8cc9553605db2145addfd56490e51ad3"
+    },
+    "asus2-translation.safetensors.part01": {
+      "bytes": 1800000000,
+      "sha256": "d5d59bd26bc90daddd99be0da9b1d2e390c265d44c4747f53b525b2dd53343cb"
+    },
+    "asus2-translation.safetensors.part02": {
+      "bytes": 660354912,
+      "sha256": "a095c1155b0d25c3dbfaef705e92c13d6270a4a77fa0db15ef86688257cea247"
+    },
+    "asus2-config.zip": {
+      "bytes": 8406961,
+      "sha256": "d01c12e92b90cd5fbce17199158ba52500c50d680a9489642f46fd53492e8f53"
+    },
+    "asus2-companions.zip": {
+      "bytes": 300692978,
+      "sha256": "fbd116b6ebc99de09957f1745e7df4de342e02edafdace8ee22ac97e767b6244"
+    }
+  },
+  "archives": {
+    "asus2-config.zip": {
+      "ASUS2/speech/config.json": {
+        "bytes": 2025,
+        "sha256": "9aba70b2248054b9642efbff0b297d46795222af85eddb938f5959ea6675e0a2"
+      },
+      "ASUS2/speech/preprocessor_config.json": {
+        "bytes": 254,
+        "sha256": "f724fdad65341e79bd9741888fe4e8ce1bb2e7b44fc8216c28c591afb1e202f4"
+      },
+      "ASUS2/speech/special_tokens_map.json": {
+        "bytes": 544,
+        "sha256": "f9562779623742b0cf29dd06839dae511dabd438459dcfb1e6f6314e0972a895"
+      },
+      "ASUS2/speech/tokenizer_config.json": {
+        "bytes": 1120,
+        "sha256": "8776ffa04e6e4c563611a24102d2ee7d4998512ce92f7ac3e6efb1ea2b7c0ec8"
+      },
+      "ASUS2/speech/vocab.json": {
+        "bytes": 966280,
+        "sha256": "31dcd5c4361451991bd8241eb99bdc822d2ef2d8a4906404884c2196aa8f3a41"
+      },
+      "ASUS2/translation/added_tokens.json": {
+        "bytes": 4467,
+        "sha256": "2e3143f32ab48b2e542982f443ebca213eacdd6f20bf1e69fc2868055e040019"
+      },
+      "ASUS2/translation/config.json": {
+        "bytes": 836,
+        "sha256": "fe4a42634b08d96d79f363872049c1f8d201b408a262b22e91ac322246270cb4"
+      },
+      "ASUS2/translation/generation_config.json": {
+        "bytes": 184,
+        "sha256": "e4f07edc03c183a9d5ad87863cee8a4e25b94343bd3c04fef69bc1d3d83a7814"
+      },
+      "ASUS2/translation/sentencepiece.bpe.model": {
+        "bytes": 4852054,
+        "sha256": "14bb8dfb35c0ffdea7bc01e56cea38b9e3d5efcdcb9c251d6b40538e1aab555a"
+      },
+      "ASUS2/translation/special_tokens_map.json": {
+        "bytes": 4232,
+        "sha256": "bf5b730279971951c64caf9fb09ac88417d06ce49a76907481b18de10a1b0c23"
+      },
+      "ASUS2/translation/tokenizer.json": {
+        "bytes": 32235116,
+        "sha256": "b507988ef33d52807fc0e485a2b99262d18b2c2a461b9a4b16437eda277c4b08"
+      },
+      "ASUS2/translation/tokenizer_config.json": {
+        "bytes": 40002,
+        "sha256": "2a9d1666df3a6aa87bebe3007d591827445f7a92e4efc0ba5c893067f27d2c5e"
+      },
+      "ASUS2/model_index.json": {
+        "bytes": 516,
+        "sha256": "bf08cba012868b4a2f31cf14a5c6f0ad83286fee5136fab3289bf9f90f69e2a7"
+      },
+      "ASUS2/NOTICE/ATRIBUCIONES.md": {
+        "bytes": 2215,
+        "sha256": "900cd14cfe3dfcdc4b8a243c738fa33bfe2b20886484b3d5649f57f694af9cde"
+      },
+      "ASUS2/ORIGEN.md": {
+        "bytes": 3537,
+        "sha256": "3680e6e694b0401231fd4010df89caf592a3dc4a9a721b1239393d78b9980216"
+      },
+      "ASUS2/NOTICE/LICENSE.txt": {
+        "bytes": 1483,
+        "sha256": "54912cf0569ae8ab54f96df063dfec90bce707f55a6ad0691198d6eaf9964c5a"
+      }
+    },
+    "asus2-companions.zip": {
+      "whisper-es/added_tokens.json": {
+        "bytes": 34604,
+        "sha256": "9715fd2243b6f06a5858b5e32950d2853f73dd5bc201aafcf76f5082a2d8acd1"
+      },
+      "whisper-es/config.json": {
+        "bytes": 1983,
+        "sha256": "ffdccec4f3211f4c63310f2b7098f309fe70f3952cedc5e4d11e43f5b2379b98"
+      },
+      "whisper-es/generation_config.json": {
+        "bytes": 3747,
+        "sha256": "a5d5325911f16e74001a72fa13d6e208eee51548f994646de1f4b4cc8b35b512"
+      },
+      "whisper-es/merges.txt": {
+        "bytes": 493869,
+        "sha256": "2df2990a395e35e8dfbc7511e08c12d56018d8d04691e0133e5d63b21e154dc6"
+      },
+      "whisper-es/model.safetensors": {
+        "bytes": 151061672,
+        "sha256": "7ebd0e69e78190ffe1438491fa05cc1f5c1aa3a4c4db3bc1723adbb551ea2395"
+      },
+      "whisper-es/normalizer.json": {
+        "bytes": 52666,
+        "sha256": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd"
+      },
+      "whisper-es/preprocessor_config.json": {
+        "bytes": 184990,
+        "sha256": "9b5cd03a36fbb8a627c64d98a5b5b126ead95a77720723944487311f0110b666"
+      },
+      "whisper-es/README.md": {
+        "bytes": 19787,
+        "sha256": "57a3bbbbf1e79369e4d1ced790812a1723b43a256c1b43fc70cc2f3339ae9881"
+      },
+      "whisper-es/special_tokens_map.json": {
+        "bytes": 2194,
+        "sha256": "e67ae3a0aaa99abcd9f187138e12db1f65c16a14761c50ef10eef2c174a7a691"
+      },
+      "whisper-es/tokenizer.json": {
+        "bytes": 2480466,
+        "sha256": "27fc476bfe7f17299480be2273fc0608e4d5a99aba2ab5dec5374b4482d1a566"
+      },
+      "whisper-es/tokenizer_config.json": {
+        "bytes": 282683,
+        "sha256": "2a4c4281cf9f51ac6ccc406fdc711a087afe6530f671fa7b80953edc498275ce"
+      },
+      "whisper-es/vocab.json": {
+        "bytes": 835550,
+        "sha256": "8f680bba319e01a653d2e8a5dbc17a9157179e0576e6ce74ce0c06356c6e24f9"
+      },
+      "tts-quz/config.json": {
+        "bytes": 1641,
+        "sha256": "a839ed88c844508ef86d4eb46265ee3bc446fbddae7a9db5371b77a56f67dea9"
+      },
+      "tts-quz/model.safetensors": {
+        "bytes": 145226744,
+        "sha256": "cae65477cfda32b518973bc32b866302d758179d7cf27b26f3786c1a016af8e5"
+      },
+      "tts-quz/README.md": {
+        "bytes": 3999,
+        "sha256": "a5afd3c1cfbb9ad8c4d5f447fd344da495179865ac440215fd38b71d89aa39ef"
+      },
+      "tts-quz/special_tokens_map.json": {
+        "bytes": 47,
+        "sha256": "26ff6550693eac9d05171f7e1c990702dc92de476904ec80b516e97001a8a25e"
+      },
+      "tts-quz/tokenizer_config.json": {
+        "bytes": 287,
+        "sha256": "29b3cbbd5dcdc47b1ae4a4706df51f92321eb07f800604c6fdaba476021e9997"
+      },
+      "tts-quz/vocab.json": {
+        "bytes": 408,
+        "sha256": "32c1346069506110d9009e0593f7be02a5ad5b588b807a02d1e0c37b06def222"
+      },
+      "manifest.json": {
+        "bytes": 3221,
+        "sha256": "08a0c976103ffdcddd1a457583490f88aaa3d7da1593869d2661b9e9e43ee26f"
+      }
+    }
+  },
+  "weights": {
+    "speech": {
+      "bytes": 1933940224,
+      "sha256": "3c9fc5832b0a7971eb2502cc6ae9ac4a8cc9553605db2145addfd56490e51ad3",
+      "assets": [
+        "asus2-speech.safetensors"
+      ]
+    },
+    "translation": {
+      "bytes": 2460354912,
+      "sha256": "0b318d9c0a0e07229130afaa7e9ffeb84eef82129d06edec2e9d544bc06287a2",
+      "assets": [
+        "asus2-translation.safetensors.part01",
+        "asus2-translation.safetensors.part02"
+      ]
+    }
+  }
+}

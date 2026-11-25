@@ -9,8 +9,8 @@ ASUS2 es un prototipo de investigación para el quechua Cusco-Collao. Su flujo d
 ### Desarrollo desde un clon limpio en Windows
 
 Ejecuta los comandos en **CMD**. La instalación inicial usa internet para
-descargar las bibliotecas y las voces auxiliares. Los pesos ajustados de ASUS2
-suman 4,4 GB y se descargan con una cuenta SSH autorizada en la red del servidor.
+descargar las bibliotecas y el paquete de modelos de aproximadamente 4,7 GB.
+Los modelos se descargan de [GitHub Releases](https://github.com/alexanderhuahuacccapacc/APP-QUECHUA/releases/tag/asus2-v1.0.0) por HTTPS.
 
 Si faltan Git o `uv`, instálalos y vuelve a abrir CMD.
 
@@ -19,16 +19,15 @@ winget install --id Git.Git -e --source winget
 winget install --id astral-sh.uv -e --source winget
 ```
 
-Clona el código y prepara el entorno Python 3.12. Sustituye `TU_USUARIO_SSH`
-por tu cuenta del servidor ASUS2. La contraseña se ingresa cuando el
-instalador la solicita. El comando verifica el servidor y los pesos y guarda
+Clona el código y prepara el entorno Python 3.12. El instalador verifica
+el SHA-256 de los archivos, recompone el peso de traducción y guarda
 los modelos en `models/`.
 
 ```cmd
 git clone --branch main https://github.com/alexanderhuahuacccapacc/APP-QUECHUA.git
 cd APP-QUECHUA
 uv sync --python 3.12 --locked --no-dev
-.venv\Scripts\python.exe -m scripts.install_asus2 --user TU_USUARIO_SSH
+.venv\Scripts\python.exe -m scripts.install_asus2
 ```
 
 #### Interfaz de escritorio
@@ -108,7 +107,7 @@ El repositorio incluye `asus.py`, `requirements.txt`, `model_index.json` y la co
 - `speech/model.safetensors` contiene los pesos ajustados de voz (1,93 GB).
 - `translation/model.safetensors` contiene los pesos ajustados de traducción (2,46 GB).
 
-Si tienes una copia local completa, conserva ambos pesos en sus carpetas junto a `model_index.json`, o indica la carpeta del paquete con `--root RUTA`. La descarga pública de los pesos está pendiente de la verificación de permisos indicada en la sección de versiones.
+Si tienes una copia local completa, conserva ambos pesos en sus carpetas junto a `model_index.json`, o indica la carpeta del paquete con `--root RUTA`. Puedes descargar el paquete oficial con el comando de instalación de la sección de desarrollo.
 
 ### Ejecutar la inferencia
 
@@ -159,9 +158,9 @@ La columna «Cambio» resta el valor de Meta al de ASUS2 usando las cifras mostr
 
 - **Avances de código.** Una etiqueta `asus2-code-vX.Y.Z` genera una versión preliminar con un ZIP de código y configuración y el SHA-256 del ZIP. [Ver Releases](https://github.com/alexanderhuahuacccapacc/APP-QUECHUA/releases)
 - **Instalador de Windows.** Las etiquetas `asus2-windows-vX.Y.Z` se reservan para las versiones descargables del asistente de instalación.
-- **Paquete completo.** La primera versión está prevista con la etiqueta `asus2-v1.0.0`. La publicación de los pesos requiere confirmar el alcance de los permisos de Yachasunchis y revisar las condiciones de QuEsT que figuran en el registro de procedencia.
+- **Paquete completo.** La versión [`asus2-v1.0.0`](https://github.com/alexanderhuahuacccapacc/APP-QUECHUA/releases/tag/asus2-v1.0.0) contiene los pesos de voz y traducción, los modelos auxiliares y sus avisos de licencia.
 
-Una vez autorizada la distribución, el paquete completo se adjuntará a la versión correspondiente en partes de hasta 1,8 GB, con el SHA-256 de cada peso. Para descargarlo, elige **Latest** o una etiqueta concreta en Releases, descarga todas las partes en una misma carpeta y extrae el paquete desde la primera parte con una herramienta compatible. Compara los SHA-256 de los pesos extraídos con los de la versión elegida. [Límites de GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases#storage-and-bandwidth-quotas)
+El peso de traducción está dividido en dos archivos para ajustarse al límite por archivo. `scripts.install_asus2` verifica las partes y las combina automáticamente. El manifiesto `asus2-release.json` contiene los SHA-256 del paquete. [Límites de GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases#storage-and-bandwidth-quotas)
 
 En GitHub Free y Pro, el límite de Git LFS es 2 GB por archivo y el peso de traducción lo supera. En GitHub Team, el límite de 4 GB por archivo permitiría usar Git LFS si se elige esa modalidad. [Límites de Git LFS por plan](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-git-large-file-storage)
 
