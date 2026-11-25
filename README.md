@@ -47,6 +47,8 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe asus.py --text "Allin p'unchay"
 .\.venv\Scripts\python.exe asus.py --audio segmento.wav
+.\.venv\Scripts\python.exe asus.py --text "imaynallan kashanki" --alternatives 3
+.\.venv\Scripts\python.exe asus.py --reverse --text "¿Cómo estás?"
 ```
 
 **Linux y macOS**
@@ -56,9 +58,11 @@ python3 -m venv .venv
 ./.venv/bin/python -m pip install -r requirements.txt
 ./.venv/bin/python asus.py --text "Allin p'unchay"
 ./.venv/bin/python asus.py --audio segmento.wav
+./.venv/bin/python asus.py --text "imaynallan kashanki" --alternatives 3
+./.venv/bin/python asus.py --reverse --text "¿Cómo estás?"
 ```
 
-El programa devuelve JSON. La entrada de audio devuelve la transcripción y la traducción. La entrada de texto devuelve la traducción. Puedes añadir `--device cpu` para ejecutar la inferencia en CPU. El audio debe durar entre 0,1 y 60 segundos y el texto admite hasta 512 tokens.
+El programa devuelve JSON. La entrada de audio devuelve la transcripción, la confianza de cada palabra reconocida y la traducción. La entrada de texto devuelve la traducción. `--alternatives N` añade hasta tres traducciones distintas. `--reverse` traduce texto en español al quechua; esta dirección es experimental y solo admite texto. Puedes añadir `--device cpu` para ejecutar la inferencia en CPU. El audio debe durar entre 0,1 y 60 segundos y el texto admite hasta 512 tokens.
 
 ## Resultados frente a los modelos base de Meta
 

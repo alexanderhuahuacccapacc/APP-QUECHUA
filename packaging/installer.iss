@@ -55,9 +55,9 @@ begin
   AHuaCcModelPage.Values[0] := ExpandConstant('{param:MODELDIR|}');
 end;
 
-procedure CurPageChanged(CurPageID: Integer);
+procedure CurPageChanged(AHuaCcCurPageID: Integer);
 begin
-  if (CurPageID = AHuaCcModelPage.ID) and (AHuaCcModelPage.Values[0] = '') then
+  if (AHuaCcCurPageID = AHuaCcModelPage.ID) and (AHuaCcModelPage.Values[0] = '') then
     AHuaCcModelPage.Values[0] := AddBackslash(WizardDirValue) + 'ASUS2';
 end;
 
