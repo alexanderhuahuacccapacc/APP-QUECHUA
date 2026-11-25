@@ -81,6 +81,8 @@ git tag -a asus2-code-v0.1.1 -m "Avance de ASUS2"
 git push origin asus2-code-v0.1.1
 ```
 
+Si el ZIP de una etiqueta existente queda pendiente, abre **Actions → Publicar avance de ASUS2 → Run workflow** e introduce la etiqueta en el campo `tag`.
+
 ## Modelos base
 
 - La transcripción adapta MMS-1B-all de Meta con el adaptador de quechua de Cusco (`quz`). [Ficha de MMS-1B-all](https://huggingface.co/facebook/mms-1b-all)

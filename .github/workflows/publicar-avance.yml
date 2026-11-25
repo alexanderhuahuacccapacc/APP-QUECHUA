@@ -4,20 +4,30 @@ on:
   push:
     tags:
       - 'asus2-code-v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Etiqueta de avance que ya existe en GitHub
+        required: true
+        type: string
 
 permissions:
   contents: write
 
 concurrency:
-  group: avance-${{ github.ref }}
+  group: avance-${{ inputs.tag || github.ref_name }}
 
 jobs:
   publicar:
+    if: startsWith(inputs.tag || github.ref_name, 'asus2-code-v')
     runs-on: ubuntu-latest
+    env:
+      ASUS2_RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
     steps:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
+          ref: refs/tags/${{ inputs.tag || github.ref_name }}
 
       - name: Empaquetar el código y la configuración
         run: |
@@ -34,14 +44,14 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if draft=$(gh release view "$GITHUB_REF_NAME" --json isDraft --jq .isDraft 2>/dev/null); then
+          if draft=$(gh release view "$ASUS2_RELEASE_TAG" --json isDraft --jq .isDraft 2>/dev/null); then
             if [ "$draft" = false ]; then
               exit 0
             fi
           else
-            gh release create "$GITHUB_REF_NAME" --verify-tag --draft --prerelease \
-              --title "ASUS2 · $GITHUB_REF_NAME" \
+            gh release create "$ASUS2_RELEASE_TAG" --verify-tag --draft --prerelease \
+              --title "ASUS2 · $ASUS2_RELEASE_TAG" \
               --notes "Paquete de código y configuración para pruebas no comerciales. Los pesos ajustados se distribuyen por separado cuando se confirmen los permisos. Consulta el README y la licencia incluidos."
           fi
-          gh release upload "$GITHUB_REF_NAME" ASUS2-code.zip SHA256SUMS.txt --clobber
-          gh release edit "$GITHUB_REF_NAME" --draft=false
+          gh release upload "$ASUS2_RELEASE_TAG" ASUS2-code.zip SHA256SUMS.txt --clobber
+          gh release edit "$ASUS2_RELEASE_TAG" --draft=false
