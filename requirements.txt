@@ -1,0 +1,6 @@
+torch>=2.6
+transformers>=4.48
+safetensors>=0.5
+numpy>=1.26
+soundfile>=0.13
+scipy>=1.11

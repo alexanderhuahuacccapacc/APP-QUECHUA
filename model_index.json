@@ -1,0 +1,23 @@
+{
+  "name": "ASUS2",
+  "format_version": 1,
+  "components": {
+    "speech": "speech",
+    "translation": "translation"
+  },
+  "source_language_token": "quy_Latn",
+  "target_language_token": "spa_Latn",
+  "generation": {
+    "num_beams": 2,
+    "max_new_tokens": 256
+  },
+  "offline": true,
+  "quality_targets": {
+    "BLEU_at_least": 40,
+    "chrF_plus_plus_at_least": 40,
+    "WER_text_below_percent": 10,
+    "CER_text_below_percent": 10,
+    "WER_voice_below_percent": 10,
+    "CER_voice_below_percent": 10
+  }
+}

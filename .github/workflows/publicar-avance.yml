@@ -1,0 +1,47 @@
+name: Publicar avance de ASUS2
+
+on:
+  push:
+    tags:
+      - 'asus2-code-v*'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: avance-${{ github.ref }}
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Empaquetar el código y la configuración
+        run: |
+          git archive --format=zip --prefix=APP-QUECHUA/ --output=ASUS2-code.zip HEAD -- \
+            LICENSE README.md asus.py requirements.txt model_index.json \
+            speech/config.json speech/preprocessor_config.json speech/special_tokens_map.json \
+            speech/tokenizer_config.json speech/vocab.json \
+            translation/added_tokens.json translation/config.json translation/generation_config.json \
+            translation/sentencepiece.bpe.model translation/special_tokens_map.json \
+            translation/tokenizer.json translation/tokenizer_config.json
+          sha256sum ASUS2-code.zip > SHA256SUMS.txt
+
+      - name: Publicar la versión preliminar
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if draft=$(gh release view "$GITHUB_REF_NAME" --json isDraft --jq .isDraft 2>/dev/null); then
+            if [ "$draft" = false ]; then
+              exit 0
+            fi
+          else
+            gh release create "$GITHUB_REF_NAME" --verify-tag --draft --prerelease \
+              --title "ASUS2 · $GITHUB_REF_NAME" \
+              --notes "Paquete de código y configuración para pruebas no comerciales. Los pesos ajustados se distribuyen por separado cuando se confirmen los permisos. Consulta el README y la licencia incluidos."
+          fi
+          gh release upload "$GITHUB_REF_NAME" ASUS2-code.zip SHA256SUMS.txt --clobber
+          gh release edit "$GITHUB_REF_NAME" --draft=false
