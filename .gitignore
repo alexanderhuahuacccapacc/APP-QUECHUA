@@ -16,3 +16,4 @@ entregables/
 checkpoints/
 checkpoint-*/
 *.safetensors
+/dist/

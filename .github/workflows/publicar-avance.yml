@@ -32,7 +32,7 @@ jobs:
       - name: Empaquetar el código y la configuración
         run: |
           git archive --format=zip --prefix=APP-QUECHUA/ --output=ASUS2-code.zip HEAD -- \
-            LICENSE README.md asus.py requirements.txt model_index.json \
+            LICENSE README.md asus.py requirements.txt model_index.json packaging/installer.iss \
             speech/config.json speech/preprocessor_config.json speech/special_tokens_map.json \
             speech/tokenizer_config.json speech/vocab.json \
             translation/added_tokens.json translation/config.json translation/generation_config.json \

@@ -6,6 +6,18 @@ ASUS2 es un prototipo de investigación para el quechua Cusco-Collao. Su flujo d
 
 ## Instalación y ejecución
 
+### Instalador de Windows
+
+El asistente para Windows 10 (versión 2004 o posterior) y Windows 11 de 64 bits está en preparación. Mostrará la licencia con la opción **Acepto el acuerdo** y permitirá seleccionar una copia local completa del modelo.
+
+Para construir el instalador, usa Inno Setup y una compilación de escritorio que contenga `Xandar.exe` y `_internal/`.
+
+```powershell
+ISCC.exe '/DAHuaCcBundle=C:\ruta\Xandar' packaging\installer.iss
+```
+
+El ejecutable del instalador se genera en `dist/`. Incluye la aplicación y su entorno incorporado. El modelo se usa desde la carpeta local seleccionada, junto con `model_index.json` y los pesos de ambos componentes.
+
 ### Clonar el repositorio
 
 Con Git instalado, ejecuta estos comandos en una terminal.
@@ -68,6 +80,7 @@ La columna «Cambio» resta el valor de Meta al de ASUS2 usando las cifras mostr
 ## Versiones en GitHub
 
 - **Avances de código.** Una etiqueta `asus2-code-vX.Y.Z` genera una versión preliminar con un ZIP de código y configuración y el SHA-256 del ZIP. [Ver Releases](https://github.com/alexanderhuahuacccapacc/APP-QUECHUA/releases)
+- **Instalador de Windows.** Las etiquetas `asus2-windows-vX.Y.Z` se reservan para las versiones descargables del asistente de instalación.
 - **Paquete completo.** La primera versión está prevista con la etiqueta `asus2-v1.0.0`. La publicación de los pesos requiere confirmar el alcance de los permisos de Yachasunchis y revisar las condiciones de QuEsT que figuran en el registro de procedencia.
 
 Una vez autorizada la distribución, el paquete completo se adjuntará a la versión correspondiente en partes de hasta 1,8 GB, con el SHA-256 de cada peso. Para descargarlo, elige **Latest** o una etiqueta concreta en Releases, descarga todas las partes en una misma carpeta y extrae el paquete desde la primera parte con una herramienta compatible. Compara los SHA-256 de los pesos extraídos con los de la versión elegida. [Límites de GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases#storage-and-bandwidth-quotas)
@@ -77,8 +90,8 @@ En GitHub Free y Pro, el límite de Git LFS es 2 GB por archivo y el peso de tra
 Para publicar un avance, crea la etiqueta en el commit ya subido a `main` y envíala al remoto. Usa un número de versión nuevo en cada publicación.
 
 ```sh
-git tag -a asus2-code-v0.1.1 -m "Avance de ASUS2"
-git push origin asus2-code-v0.1.1
+git tag -a asus2-code-v0.2.1 -m "Avance de ASUS2"
+git push origin asus2-code-v0.2.1
 ```
 
 Si el ZIP de una etiqueta existente queda pendiente, abre **Actions → Publicar avance de ASUS2 → Run workflow** e introduce la etiqueta en el campo `tag`.
